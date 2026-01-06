@@ -1,0 +1,10 @@
+export const createChunks = (text, size = 1000, overlap = 100) => {
+  const chunks = [];
+  const step = size - overlap;
+
+  for (let i = 0; i < text.length; i += step) {
+    chunks.push(text.slice(i, i + size));
+  }
+
+  return chunks;
+};
