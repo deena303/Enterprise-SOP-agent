@@ -33,8 +33,8 @@ router.post("/upload", upload.single("pdf"), async (req, res) => {
 
       if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === "sk-your-key") {
         console.log("⚠️ Using mock embeddings (no valid API key found)");
-        // OpenAI embeddings are typically 1536 dimensions
-        embedding = Array.from({ length: 1536 }, () => Math.random());
+        // Use 768 dimensions to match MongoDB vector_index
+        embedding = Array.from({ length: 768 }, () => Math.random());
       } else {
         const embedRes = await axios.post(
           "https://api.openai.com/v1/embeddings",
