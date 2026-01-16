@@ -58,7 +58,7 @@ function App() {
             <section className="section-card section-search">
               <div className="section-header">
                 <span className="section-icon">🔍</span>
-                <h2>Week 2 — Vector Search</h2>
+                <h2>Vector Search</h2>
               </div>
               <p className="section-desc">Find relevant SOP chunks instantly</p>
               <Searcher />
