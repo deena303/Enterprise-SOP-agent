@@ -49,7 +49,7 @@ function App() {
             <section className="section-card section-upload">
               <div className="section-header">
                 <span className="section-icon">📄</span>
-                <h2>Week 1 — Knowledge Ingestion</h2>
+                <h2>Knowledge Ingestion</h2>
               </div>
               <p className="section-desc">Upload and process PDF documents</p>
               <PDFUploader />
