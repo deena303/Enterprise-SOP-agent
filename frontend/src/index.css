@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Global Styles */
 * {
   margin: 0;
@@ -15,4 +16,11 @@ body {
 
 html, body, #root {
   height: 100%;
+=======
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  background: #f5f5f5;
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
 }

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import "../styles/PDFUploader.css";
+=======
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
 
 export default function PDFUploader() {
   const [file, setFile] = useState(null);
   const [msg, setMsg] = useState("");
+<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -16,10 +20,16 @@ export default function PDFUploader() {
     setLoading(true);
     setError("");
     setMsg("");
+=======
+
+  const uploadPDF = async () => {
+    if (!file) return alert("Select a PDF file");
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
 
     const fd = new FormData();
     fd.append("pdf", file);
 
+<<<<<<< HEAD
     try {
       const res = await fetch("http://localhost:5000/api/upload", {
         method: "POST",
@@ -93,6 +103,32 @@ export default function PDFUploader() {
           <pre className="response-content">{msg}</pre>
         </div>
       )}
+=======
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: fd
+    });
+
+    const data = await res.json();
+    setMsg(JSON.stringify(data, null, 2));
+  };
+
+  return (
+    <div style={{ marginTop: "20px" }}>
+      <input
+        type="file"
+        accept="application/pdf"
+        onChange={(e) => setFile(e.target.files[0])}
+      />
+
+      <br /><br />
+
+      <button onClick={uploadPDF} style={{ padding: "10px" }}>
+        Upload PDF
+      </button>
+
+      <pre>{msg}</pre>
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
     </div>
   );
 }

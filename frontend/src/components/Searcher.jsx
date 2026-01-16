@@ -1,10 +1,14 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import "../styles/Searcher.css";
+=======
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
 
 const Searcher = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
     const [error, setError] = useState("");
     const [hasSearched, setHasSearched] = useState(false);
 
@@ -18,12 +22,21 @@ const Searcher = () => {
 
         try {
             const res = await fetch("http://localhost:5000/api/search", {
+=======
+
+    const handleSearch = async () => {
+        if (!query) return;
+        setLoading(true);
+        try {
+            const res = await fetch("/api/search", {
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ query }),
             });
+<<<<<<< HEAD
             
             if (!res.ok) throw new Error("Search failed");
             
@@ -33,12 +46,20 @@ const Searcher = () => {
             console.error("Search failed:", err);
             setError("Search failed. Please try again.");
             setResults([]);
+=======
+            const data = await res.json();
+            setResults(data.results || []);
+        } catch (err) {
+            console.error("Search failed:", err);
+            alert("Search failed. Check console.");
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
         } finally {
             setLoading(false);
         }
     };
 
     return (
+<<<<<<< HEAD
         <div className="searcher-container">
             <form onSubmit={handleSearch} className="search-form">
                 <div className="search-input-group">
@@ -111,6 +132,31 @@ const Searcher = () => {
                         <p>Start by asking a question about your SOPs</p>
                         <p className="initial-hint">The AI will search through uploaded documents to find relevant information</p>
                     </div>
+=======
+        <div style={{ marginTop: "40px", borderTop: "1px solid #ccc", paddingTop: "20px" }}>
+            <h2>Week 2 — SOP Vector Search</h2>
+            <input
+                type="text"
+                placeholder="Ask a question..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                style={{ width: "300px", padding: "10px" }}
+            />
+            <button onClick={handleSearch} style={{ padding: "10px 20px", marginLeft: "10px" }}>
+                {loading ? "Searching..." : "Search"}
+            </button>
+
+            <div style={{ marginTop: "20px" }}>
+                {results.length > 0 ? (
+                    results.map((res, index) => (
+                        <div key={index} style={{ marginBottom: "15px", padding: "10px", background: "#f9f9f9", borderRadius: "5px" }}>
+                            <p><strong>Result {index + 1} (Score: {res.score.toFixed(4)})</strong></p>
+                            <p>{res.text}</p>
+                        </div>
+                    ))
+                ) : (
+                    !loading && <p>No results yet.</p>
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
                 )}
             </div>
         </div>

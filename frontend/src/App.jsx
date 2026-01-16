@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import PDFUploader from "./components/PDFUploader";
 import Searcher from "./components/Searcher";
@@ -72,6 +73,19 @@ function App() {
           <div className="gradient-blob blob-3"></div>
         </div>
       </main>
+=======
+import PDFUploader from "./components/PDFUploader";
+import Searcher from "./components/Searcher";
+
+function App() {
+  return (
+    <div style={{ padding: "40px" }}>
+      <center>
+        <h1>Enterprise SOP Agent</h1>
+        <PDFUploader />
+        <Searcher />
+      </center>
+>>>>>>> cace90b7abc48e10eb2352e88a308b25b904c3d5
     </div>
   );
 }
